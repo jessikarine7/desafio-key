@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="menu-horizontal">
     <nav class="container-1"> 
       <div class="container-2">
           <h1 class="titulo">Tarefas</h1>
           <div class="div-tempo">
-              <img src="./img/relogio.png"  width="15px" height="15px" alt="">
+              <img src="./img/relogio2.png"  width="15px" height="15px" alt="">
               <p id="horas">5h</p>
-              <button id="minutos">10</button>
+              <img src="./img/numero.png" width="17px" alt="">
           </div>
       </div>
 
@@ -26,23 +26,38 @@
       </div>
 
     </nav>
-  <!-- <img src="./img/layout.jpeg" alt=""> -->
   </div>
+  <Menu_VE />
 </template>
 
 <script>
+
+import Menu_VE from './views/Menu_VE.vue'
+
 export default {
-    
+  components:{
+    Menu_VE
+  }
 }
 </script>
 
-<style scoped>
+<style >
 
 /*---------------------- MENU HORIZAONTAL---------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
 
 body{
-  background-color: #7cd48a;
+  margin: 0;
+  padding: 0;
+  background-color: #8ec78788;
 }
+
+.menu-horizontal{
+  margin-left: 10%;
+  margin-right: 4.2%;
+
+}
+
 .container-1{
   display: flex;
   align-items: center;
@@ -69,19 +84,23 @@ body{
   align-items: center;
 }
 
+.titulo {
+  font-family: poppins;
+  font-weight: 300;
+  color: #3b5238;
+}
+
+#horas{
+  font-family: poppins;
+  color: #7F947F;
+  margin-right: 7px;
+}
+
 .div-tempo{
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-left: 20px;
-}
-
-#minutos{
-  border: none;
-  border-radius: 50px;
-  padding: 5px;
-  background-color: #7cd48a;
-  color: #fff;
 }
 
 .div-input{
@@ -99,10 +118,13 @@ body{
 
 #input{
   border: none;
+  font-family: poppins;
+  font-weight:500;
+  color: #b2b2b2;
 }
 
 .input::placeholder{
-  color: #0000003b;
+  color: #b2b2b2;
 }
 
 #lupa{
@@ -116,7 +138,8 @@ body{
   gap: 5px;
   padding: 10px;
   border-radius: 4px;
-  background-color: #7cd48a;
+  background-color: #8ec787;
   color: #000;
+  font-family: poppins;
 }
 </style>
