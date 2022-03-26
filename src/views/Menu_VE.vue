@@ -62,9 +62,9 @@ export default {
   justify-content: center;
   border-radius: 10px;
   top: 0;
-  width: 10vh;
+  width: 8vh;
   height: 100vh;
-  background: #8ec787;
+  background: #8CC587 ;
 }
 
 .container-icones{
@@ -82,9 +82,10 @@ export default {
   display: flex;
   position: absolute;
   justify-content: center;
+  box-shadow: 0px 1px 5px 0px #0000003d;
   margin-left: 4%;
   top: 0;
-  width: 10vh;
+  width: 8vh;
   height: 100vh;
   background: #FFF;
 }
@@ -104,9 +105,10 @@ export default {
   display: flex;
   position: absolute;
   justify-content: center;
+  box-shadow: 0px 1px 5px 0px #0000003d;
   margin-left: 100%;
   top: 0;
-  width: 10vh;
+  width:8vh;
   height: 100vh;
   background: #FFF;
 }
@@ -118,7 +120,7 @@ export default {
   margin-left: 96%;
   box-shadow: 0px 1px 5px 0px #0000003d;
   top: 0;
-  width: 10vh;
+  width: 8vh;
   height: 100vh;
   background: #FFF;
 }

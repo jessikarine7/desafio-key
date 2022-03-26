@@ -17,7 +17,8 @@
         </div>
         
         <div class="container-4">
-          <button class="filtro">FILTRO
+          <button class="filtro">
+            <span class="filtro-nome">FILTRO</span>
             <img src="./img/filtro.png" width="15px" alt="">
           </button>
           <img src="./img/notificacao.png" width="20px" height="20px" alt="">
@@ -28,15 +29,19 @@
     </nav>
   </div>
   <Menu_VE />
+  <Corpo_Cards />
 </template>
 
 <script>
 
 import Menu_VE from './views/Menu_VE.vue'
 
+import Corpo_Cards from './views/Corpo_Cards.vue'
+
 export default {
   components:{
-    Menu_VE
+    Menu_VE,
+    Corpo_Cards
   }
 }
 </script>
@@ -44,7 +49,8 @@ export default {
 <style >
 
 /*---------------------- MENU HORIZAONTAL---------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 body{
   margin: 0;
@@ -79,19 +85,20 @@ body{
 }
 
 .container-4{
-  gap: 20%; 
+  gap: 10%; 
   display: flex;
   align-items: center;
 }
 
 .titulo {
-  font-family: poppins;
-  font-weight: 300;
-  color: #3b5238;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #3A5138;
 }
 
 #horas{
-  font-family: poppins;
+  font-family: Montserrat;
+  font-weight: 600;
   color: #7F947F;
   margin-right: 7px;
 }
@@ -118,13 +125,17 @@ body{
 
 #input{
   border: none;
-  font-family: poppins;
-  font-weight:500;
-  color: #b2b2b2;
+  font-family: Rubik;
+  font-size: 17px;
+  font-weight:600;
+  color: #0000004D;
+  opacity: 1;
+  
 }
 
 .input::placeholder{
-  color: #b2b2b2;
+  color: #0000004D;
+  opacity: 1;
 }
 
 #lupa{
@@ -136,10 +147,17 @@ body{
   align-items: center;
   border:none;
   gap: 5px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
-  background-color: #8ec787;
+  background-color: #8CC587;
+  box-shadow: 0px 3px 6px #00000029;
   color: #000;
-  font-family: poppins;
+}
+
+.filtro-nome{
+  font-size: 17px;
+  font-family: Montserrat;
+  font-weight: 700;
+  color: #3A5138;
 }
 </style>
