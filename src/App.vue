@@ -55,13 +55,15 @@ export default {
 body{
   margin: 0;
   padding: 0;
-  background-color: #8ec78788;
+  background-color: #fff;
 }
 
-.menu-horizontal{
-  margin-left: 10%;
-  margin-right: 4.2%;
-
+.menu-horizontal {
+  margin-right: min(10vw, 124px);
+  margin-left: min(10vw, 124px);
+  border: 2px solid #8cc587;
+  border-left: 34px solid #8cc587;
+  border-right: 4px solid #8cc587;
 }
 
 .container-1{

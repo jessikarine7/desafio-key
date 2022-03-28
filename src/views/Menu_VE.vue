@@ -1,7 +1,7 @@
 <template>
 
-  <div class="container-menu">
-    <div class="menu-vertical">
+  <div class="menu-container-1">
+    <div class="menu-vertical-1">
       <nav class="container-icones"> 
         <img id="logo" src="@/img/logo.png" width="50" height="50" alt="s">
         <img src="@/img/menu.png" width="20" alt="">
@@ -13,33 +13,37 @@
         <img src="@/img/cadastrar.svg" width="20" alt="">
         <img src="@/img/config.svg" width="20" alt="">
       </nav>
+
+      <div class="menu-vertical-2">
+        <nav class="container-icones-2"> 
+          <img id="mala" src="@/img/mala.svg" width="20" alt="s">
+          <img src="@/img/seta-direita.png" width="20" alt="">
+          <img src="@/img/numero-3.png" width="20" alt="">
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-container-2">
+
+    <div class="menu-vertical-3">
+      <nav class="container-icones-2"> 
+        <img id="mala" src="@/img/y.svg" width="20" alt="s">
+        <img src="@/img/seta-esquerda.png" width="20" alt="">
+        <img src="@/img/numero-2.png" width="20" alt="">
+      </nav>
     </div>
 
-    <div class="menu-vertical-2">
+    <div class="menu-vertical-4">
       <nav class="container-icones-2"> 
-        <img id="mala" src="@/img/mala.svg" width="20" alt="s">
-        <img src="@/img/seta-direita.png" width="20" alt="">
-        <img src="@/img/numero-3.png" width="20" alt="">
+        <img id="mala" src="@/img/check.svg" width="20" alt="s">
+        <img src="@/img/seta-esquerda.png" width="20" alt="">
+        <img src="@/img/numero-2.png" width="20" alt="">
       </nav>
     </div>
 
   </div>
   
-  <div class="menu-vertical-3">
-    <nav class="container-icones-2"> 
-      <img id="mala" src="@/img/check.svg" width="20" alt="s">
-      <img src="@/img/seta-esquerda.png" width="20" alt="">
-      <img src="@/img/numero-2.png" width="20" alt="">
-    </nav>
-  </div>
-
-  <div class="menu-vertical-4">
-    <nav class="container-icones-2"> 
-      <img id="mala" src="@/img/y.svg" width="20" alt="s">
-      <img src="@/img/seta-esquerda.png" width="20" alt="">
-      <img src="@/img/numero-2.png" width="20" alt="">
-    </nav>
-  </div>
   
 </template>
 
@@ -50,44 +54,41 @@ export default {
 </script>
 
 <style>
-.container-menu{
-  display: flex;
-  flex-direction: row;
-  gap: 70px;
-}
-
-.menu-vertical{
+.menu-container-1{
   display: flex;
   position: absolute;
-  justify-content: center;
-  border-radius: 10px;
   top: 0;
-  width: 8vh;
-  height: 100vh;
-  background: #8CC587 ;
+  left: 0;
+  bottom: 0;
+}
+
+.menu-vertical-1{
+  display: flex;
+  justify-content: center;
 }
 
 .container-icones{
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: #8CC587;
+  border-radius: 10px;  
   gap: 5%;
 }
 
 #logo{
-  margin-top: 10px;
+  padding: 7px;
+  padding-bottom: 0;
 }
 
 .menu-vertical-2{
   display: flex;
-  position: absolute;
   justify-content: center;
   box-shadow: 0px 1px 5px 0px #0000003d;
-  margin-left: 4%;
-  top: 0;
-  width: 8vh;
-  height: 100vh;
+  width: 5vw;
+  max-width: 62px;
   background: #FFF;
+  z-index: 1;
 }
 
 .container-icones-2{
@@ -101,27 +102,30 @@ export default {
   margin-top: 25px;
 }
 
-.menu-vertical-3{
+.menu-container-2{
   display: flex;
   position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.menu-vertical-3{
+  display: flex;
   justify-content: center;
   box-shadow: 0px 1px 5px 0px #0000003d;
-  margin-left: 100%;
-  top: 0;
-  width:8vh;
-  height: 100vh;
+  width: 5vw;
+  max-width: 62px;
   background: #FFF;
+   z-index: 1;
 }
 
 .menu-vertical-4{
   display: flex;
-  position: absolute;
   justify-content: center;
-  margin-left: 96%;
   box-shadow: 0px 1px 5px 0px #0000003d;
-  top: 0;
-  width: 8vh;
-  height: 100vh;
+  width: 5vw;
+  max-width: 62px;
   background: #FFF;
 }
 
