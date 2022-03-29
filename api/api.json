@@ -1,0 +1,110 @@
+{
+  "listas": [
+    {
+      "titulo": "Aguardando",
+      "id": 1
+    },
+    {
+      "titulo": "Em Andamento",
+      "id": 2
+    },
+    {
+      "titulo": "Pendência",
+      "id": 3
+    },
+    {
+      "titulo": "Finalizado",
+      "id": 4
+    },
+    {
+      "titulo": "Outros",
+      "id": 5
+    }
+  ],
+  "cards": [
+    {
+      "lista": "asdasdsa",
+      "setor": "",
+      "codigo": "",
+      "tarefa": "",
+      "empresa": "",
+      "data": "asdasda",
+      "tempo": "asdasdas",
+      "saldo": "",
+      "situacao": "",
+      "equipe": "",
+      "descricao": "",
+      "id": 2
+    },
+    {
+      "listaId": 1,
+      "setor": "asda",
+      "codigo": "asdasd",
+      "tarefa": "asdas",
+      "empresa": "",
+      "data": "sdad",
+      "tempo": "asda",
+      "saldo": "asdasd",
+      "situacao": "asda",
+      "equipe": "",
+      "descricao": "",
+      "id": 3
+    },
+    {
+      "listaId": 4,
+      "setor": "asda",
+      "codigo": "asdasd",
+      "tarefa": "asdas",
+      "empresa": "",
+      "data": "sdad",
+      "tempo": "asda",
+      "saldo": "asdasd",
+      "situacao": "asda",
+      "equipe": "",
+      "descricao": "",
+      "id": 4
+    },
+    {
+      "listaId": 3,
+      "setor": "set",
+      "codigo": "#23434",
+      "tarefa": "nova tarefa",
+      "empresa": "sda",
+      "data": "previsao",
+      "tempo": "00:30",
+      "saldo": "2132",
+      "situacao": "EM DIA",
+      "equipe": "adsa",
+      "descricao": "asdsa",
+      "id": 5
+    },
+    {
+      "listaId": 3,
+      "setor": "ASDA",
+      "codigo": "ASDA",
+      "tarefa": "",
+      "empresa": "",
+      "data": "2022-03-23",
+      "tempo": "ASDAS",
+      "saldo": "",
+      "situacao": "ATENÇÃO",
+      "equipe": "",
+      "descricao": "asdsad",
+      "id": 6
+    },
+    {
+      "listaId": 3,
+      "setor": "ASDA",
+      "codigo": "ASDA",
+      "tarefa": "",
+      "empresa": "",
+      "data": "2022-03-23",
+      "tempo": "ASDAS",
+      "saldo": "",
+      "situacao": "EM ATRASO",
+      "equipe": "",
+      "descricao": "asdsad",
+      "id": 7
+    }
+  ]
+}

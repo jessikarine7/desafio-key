@@ -6,15 +6,17 @@
           <div class="div-tempo">
               <img src="./img/relogio2.png"  width="15px" height="15px" alt="">
               <p id="horas">5h</p>
-              <img src="./img/numero.png" width="17px" alt="">
+              <span class="numero-10">10</span>
           </div>
       </div>
 
-      <div class="container-3">
-        <div class="div-input">
-          <img id="lupa" src="./img/lupa.png" width="15px" alt="">
-          <input id="input" type="text" placeholder="Pesquisar por Tarefa...">
+      <div class="container-3" :style="mostrarBusca ? { marginRight: 0 } : ''">
+        <div class="div-input" :class="mostrarBusca ? 'block' : 'none'">
+          <img id="lupa" src="./img/lupa.png" width="15" alt="">
+          <input id="input" type="text" placeholder="Pesquisar por Tarefa..." @blur="mostrarBusca = false">
         </div>
+
+        <img class="ativar-busca" src="./img/lupa.png" width="15" alt="" @click="ativarBusca">
         
         <div class="container-4">
           <button class="filtro">
@@ -42,6 +44,16 @@ export default {
   components:{
     Menu_VE,
     Corpo_Cards
+  },
+  data() {
+    return {
+      mostrarBusca: false
+    }
+  },
+  methods: {
+    ativarBusca() {
+      this.mostrarBusca = true;
+    }
   }
 }
 </script>
@@ -59,8 +71,8 @@ body{
 }
 
 .menu-horizontal {
-  margin-right: min(10vw, 124px);
-  margin-left: min(10vw, 124px);
+  margin-right: 124px;
+  margin-left: 124px;
   border: 2px solid #8cc587;
   border-left: 34px solid #8cc587;
   border-right: 4px solid #8cc587;
@@ -77,6 +89,7 @@ body{
   display: flex;
   align-items: center;
   margin-left: 1%;
+  flex-grow: 1;
 }
 
 .container-3{
@@ -84,6 +97,9 @@ body{
   margin-right: 4%;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+  justify-content: flex-end;
+  position: relative;
 }
 
 .container-4{
@@ -112,17 +128,57 @@ body{
   margin-left: 20px;
 }
 
+.numero-10{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #748B75;
+  width: 22px;
+  height: 22px;
+  border-radius: 28px;
+  color: #fff;
+  font-family: Montserrat;
+  font-weight: 500;
+}
+
 .div-input{
   display: flex;
   align-self: center;
   align-items: center;
   border:none;
   gap: 15px;
-  width: 70vh;
   height: 6vh;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0px 1px 5px 0px #0000003d;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 900px) {
+  div.div-input {
+    position: static;
+    display: flex;
+  }
+
+  .ativar-busca {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  div.div-input {
+    width: 100%;
+  }
+}
+
+.block {
+  display: flex;
+}
+
+.none {
+  display: none;
 }
 
 #input{

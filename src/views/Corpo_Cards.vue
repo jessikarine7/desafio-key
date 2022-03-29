@@ -19,7 +19,7 @@
 
           <draggable 
             :list="element.cards"
-            item-key="titulo"
+            item-key="tarefa"
             class="drag-cards"
             :class="element.cards.length ? '' : 'empty'"
             :group="{ name: 'cards' }"
@@ -27,33 +27,33 @@
             <template #item="{ element }">
               <div class="card">
                 <div class="container-informacao">
-                  <button class="setor">DESENVOLVIMENTO</button>
+                  <button class="setor">{{element.setor}}</button>
                   <div class="container-codigos">
                       <span class="descrisao">Código:</span>
-                      <span class="codigo-numero">#12345</span>
+                      <span class="codigo-numero">{{element.codigo}}</span>
                   </div>
                 </div>
 
-                <h1 class="tarefa">{{element.titulo}}</h1>
+                <h1 class="tarefa">{{element.tarefa}}</h1>
 
                 <div class="container-projetos">
                   <div class="container-empresa">
                     <span class="descrisao">Projeto:</span>
-                    <span class="empresa">Company</span>
+                    <span class="empresa">{{element.empresa}}</span>
                   </div>
 
                   <div class="container-previsao">
                     <span class="descrisao">Prevista:</span>
                     <div class="container-data">
                       <img src="@/img/calendario.svg" width="20px" height="20px" alt="">
-                      <span class="data-previsao">30/12/2021</span>
+                      <span class="data-previsao">{{element.data}}</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="container-descrisao">
                   <span class="descrisao">Descrisão:</span>
-                  <span class="descrisao-p">Usar a branch master, fazer pull, após isso...</span>
+                  <span class="descrisao-p">{{element.descricao}}</span>
                 </div>
 
                 <div class="container-rodape">
@@ -64,10 +64,12 @@
                       <span class="descrisao titulo-hora">Previsto</span> 
                       <div class="icone-hora">
                         <img src="@/img/relogio.png" width="20" height="20" alt="">
-                        <span class="hora">00:30</span>
+                        <span class="hora">{{element.tempo}}</span>
                       </div>
                     </div>
-                    <span class="situacao">EM DIA</span>
+                    <span class="situacao green" v-if="element.situacao === 'EM DIA'">{{element.situacao}}</span>
+                    <span class="situacao yellow" v-if="element.situacao === 'ATENÇÃO'">{{element.situacao}}</span>
+                    <span class="situacao red" v-if="element.situacao === 'EM ATRASO'">{{element.situacao}}</span>
                   </div>
 
                   <div class="container-saldo">
@@ -76,13 +78,18 @@
                       <span class="descrisao titulo-saldo">Saldo</span>
                       <div class="icone-saldo">
                         <img src="@/img/relogio.png" width="20" height="20" alt="">
-                        <span class="saldo">+00:10</span>
+                        <span class="saldo">{{element.saldo}}</span>
                       </div>
 
                     </div>
-                    <div>
-                      <span class="descrisao">Equipe</span>
-                
+
+                    <div class="container-equipe">
+                      <span class="descrisao titulo-equipe">Equipe</span>
+                      <div class="equipe-responsavel">
+                        <span class="equipe">{{element.equipe}}</span>
+                        <span class="equipe">PH</span>
+                        <span class="equipe">WO</span>
+                      </div>
                     </div>
 
                   </div>
@@ -102,23 +109,27 @@
 
 <script>
 import draggable from "vuedraggable";
+import axios from 'axios';
 
 export default {
   components: {
     draggable,
+
   },
 
   data() {
     return {
-      listas: [
-        { titulo: "Aguardando", cards: [{titulo:'card1'}, {titulo:'card2'}] },
-        { titulo: "Em Andamento", cards: [{titulo:'card2'},{titulo:'card213223'}] },
-        { titulo: "Pendência", cards: [{titulo:'card3'}] },
-        { titulo: "Finalizado", cards: [{titulo:'card4'}] },
-        { titulo: "Outros", cards: [{titulo:'card5'}] },
-      ],
+      listas: [],
       drag: false,
     };
+  },
+
+  created() {
+    axios
+      .get('http://localhost:3000/listas?_embed=cards')
+      .then((response) => {
+        this.listas = response.data;
+      })
   }
 };
 </script>
@@ -128,33 +139,40 @@ export default {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  margin-left: 8%;
-  margin-right: 9%;
+  margin-right: min(10vw, 124px);
+  margin-left: min(10vw, 124px);
+  padding: 0 20px;
   overflow-x: scroll;
 }
 
 .card-vertical {
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  align-items: center;
   margin-left: 1.5%;
   margin-top: 2%;
   gap: 18px;
+  padding: 0 10px;
   flex-grow: 1;
   flex-shrink: 0;
-  width: 45vh;
   overflow-y: auto;
+  width: min(375px, 27vw);
   height: 85vh;
   background-color: #e8ebe8;
   border-top-left-radius: 10px;
+}
+
+.card-vertical:first-child {
+  margin-left: 0;
 }
 
 .etiqueta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% + 20px);
+  margin: 0 -10px;
   height: 7vh;
   background-color: #8cc587;
   border-top-left-radius: 10px;
@@ -189,7 +207,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  width: 43vh;
+  width: 100%;
   box-shadow: 0px 1px 5px 0px #0000003d;
   border-radius: 5px;
   background-color: #fff;
@@ -223,7 +241,6 @@ export default {
   font-family: Montserrat;
   font-weight: 500;
   font-size: 11px;
-  opacity: 1;
   color: #00000080;
 }
 
@@ -303,11 +320,13 @@ export default {
   gap: 3px;
 }
 
-.drag-cards.empty {
-  min-height: 200px;
-  min-width: 90%;
+.drag-cards {
+  min-height: 60vh;
+  min-width: 100%;
   display: inline-block;
-  /* outline: 1px dashed; */
+}
+
+.drag-cards.empty {
   text-align: center;
 }
 
@@ -346,7 +365,7 @@ export default {
   margin-top: 10px;
   margin-left: 15px;
   margin-right: 15px;
-  margin-bottom: 10px;
+  /* margin-bottom: 4px; */
 
 }
 
@@ -365,7 +384,7 @@ export default {
   justify-content: space-between;
   margin-left: 15px;
   margin-right: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .icone-saldo{
@@ -379,13 +398,24 @@ export default {
 }
 
 .situacao{
-  background-color: #107154;
   padding: 5px 20px 5px 20px;
   border-radius: 3px;
   color: #fff;
   font-family: Montserrat;
   font-weight: bold;
   font-size: 12px;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.situacao.green {
+  background-color: #107154;
+}
+.situacao.yellow {
+  background-color: #F7E702;
+  color: #000000B3;
+}
+.situacao.red {
+  background-color: #A31E20;
 }
 
 .saldo{
@@ -400,6 +430,32 @@ export default {
 
 .hora-prevista{
   line-height: 11px;
+}
+
+.container-equipe{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.equipe-responsavel{
+  display: flex;
+  gap: 5px;
+}
+
+.equipe{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  background-color: #00000080;
+  color: #FFFFFF;
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 11px;
+  border-radius: 28px;
 }
 
 </style>
