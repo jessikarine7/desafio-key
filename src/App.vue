@@ -65,8 +65,9 @@ export default {
     },
 
     updateLista(){
+      const port = process.env.PORT || 3000
       axios
-        .get('http://localhost:3000/listas?_embed=cards')
+        .get(`http://localhost:${port}/listas?_embed=cards`)
         .then((response) => {
           this.listas = response.data;
         })
