@@ -134,7 +134,7 @@ export default {
   methods:{
     createdPost() {
       axios
-        .post('https://my-json-server.typicode.com/jessikarine7/desafio-key/cards', this.FormData)
+        .post('https://key-backend.herokuapp.com/api/cards', this.FormData)
         .then((response) => {
           this.$emit('criarTask')
           this.showModal = false
@@ -144,7 +144,7 @@ export default {
   },
   created() {
     axios
-      .get('http://localhost:3000/listas')
+      .get('https://key-backend.herokuapp.com/api/listas')
       .then((response) => {
         this.listas = response.data;
       })

@@ -65,9 +65,8 @@ export default {
     },
 
     updateLista(){
-      const port = process.env.PORT || 3000
       axios
-        .get(`http://localhost:${port}/listas?_embed=cards`)
+        .get('https://key-backend.herokuapp.com/api/listas?_embed=cards')
         .then((response) => {
           this.listas = response.data;
         })
