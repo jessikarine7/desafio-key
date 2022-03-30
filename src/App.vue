@@ -13,7 +13,7 @@
       <div class="container-3" :style="mostrarBusca ? { marginRight: 0 } : ''">
         <div class="div-input" :class="mostrarBusca ? 'block' : 'none'">
           <img id="lupa" src="./img/lupa.png" width="15" alt="">
-          <input id="input" type="text" placeholder="Pesquisar por Tarefa..." @blur="mostrarBusca = false">
+          <input id="input" type="text" placeholder="Pesquisar por Tarefa..." @blur="mostrarBusca = false" :ref="'searchInput'">
         </div>
 
         <img class="ativar-busca" src="./img/lupa.png" width="15" alt="" @click="ativarBusca">
@@ -58,6 +58,9 @@ export default {
   methods: {
     ativarBusca() {
       this.mostrarBusca = true;
+      setTimeout(() => {
+        this.$refs['searchInput'].focus();
+      })
     },
 
     criarTaskHandler() {
@@ -66,7 +69,7 @@ export default {
 
     updateLista(){
       axios
-        .get('https://key-backend.herokuapp.com/api/listas?_embed=cards')
+        .get(`${this.apiUrl}/listas?_embed=cards`)
         .then((response) => {
           this.listas = response.data;
         })

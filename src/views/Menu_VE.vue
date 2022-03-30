@@ -24,8 +24,14 @@
               <select id="lista" class="input-modal" v-model="FormData.listaId">
                 <option :value="lista.id" v-for="lista of listas" :key="lista.id">{{lista.titulo}}</option>
               </select>
+              
               <label for="setor" class="descricao-modal">Setor:</label>
-              <input type="text" id="setor" class="input-modal" v-model="FormData.setor">
+              <select id="setor" class="input-modal" v-model="FormData.setor">
+                <option>DESENVOLVIMENTO</option>
+                <option>FINANCEIRO</option>
+                <option>UX | UI</option> 
+              </select>
+
               <label for="codigo" class="descricao-modal">Código:</label>
               <input type="text" id="codigo" class="input-modal" v-model="FormData.codigo">
               <label for="tarefa" class="descricao-modal">Tarefa:</label>
@@ -134,7 +140,7 @@ export default {
   methods:{
     createdPost() {
       axios
-        .post('https://key-backend.herokuapp.com/api/cards', this.FormData)
+        .post(`${this.apiUrl}/cards`, this.FormData)
         .then((response) => {
           this.$emit('criarTask')
           this.showModal = false
@@ -144,7 +150,7 @@ export default {
   },
   created() {
     axios
-      .get('https://key-backend.herokuapp.com/api/listas')
+      .get(`${this.apiUrl}/listas`)
       .then((response) => {
         this.listas = response.data;
       })

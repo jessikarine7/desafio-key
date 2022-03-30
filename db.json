@@ -23,21 +23,7 @@
   ],
   "cards": [
     {
-      "lista": "asdasdsa",
-      "setor": "",
-      "codigo": "",
-      "tarefa": "",
-      "empresa": "",
-      "data": "asdasda",
-      "tempo": "asdasdas",
-      "saldo": "",
-      "situacao": "",
-      "equipe": "",
-      "descricao": "",
-      "id": 2
-    },
-    {
-      "listaId": 1,
+      "listaId": "2",
       "setor": "asda",
       "codigo": "asdasd",
       "tarefa": "asdas",
@@ -79,7 +65,7 @@
       "id": 5
     },
     {
-      "listaId": 3,
+      "listaId": 5,
       "setor": "ASDA",
       "codigo": "ASDA",
       "tarefa": "",
@@ -93,7 +79,7 @@
       "id": 6
     },
     {
-      "listaId": 3,
+      "listaId": "1",
       "setor": "ASDA",
       "codigo": "ASDA",
       "tarefa": "",
@@ -105,20 +91,6 @@
       "equipe": "",
       "descricao": "asdsad",
       "id": 7
-    },
-    {
-      "listaId": 1,
-      "setor": "dese",
-      "codigo": "asa",
-      "tarefa": "dsa",
-      "empresa": "",
-      "data": "",
-      "tempo": "dsds",
-      "saldo": "sadsa",
-      "situacao": "EM DIA",
-      "equipe": "",
-      "descricao": "",
-      "id": 8
     },
     {
       "listaId": 2,
@@ -135,32 +107,60 @@
       "id": 9
     },
     {
-      "listaId": 2,
-      "setor": "y",
-      "codigo": "yyyy",
-      "tarefa": "y",
-      "empresa": "yy",
-      "data": "",
-      "tempo": "",
-      "saldo": "",
-      "situacao": "",
+      "listaId": 1,
+      "setor": "UX|UI",
+      "codigo": "#KKKKK",
+      "tarefa": "",
+      "empresa": "",
+      "data": "2022-03-15",
+      "tempo": "00:30",
+      "saldo": "111",
+      "situacao": "ATENÇÃO",
       "equipe": "",
-      "descricao": "yyyyyyyy",
+      "descricao": "",
       "id": 10
     },
     {
-      "listaId": 2,
-      "setor": "d",
-      "codigo": "d",
-      "tarefa": "d",
-      "empresa": "d",
+      "listaId": 4,
+      "setor": "UX | UI",
+      "codigo": "ESSAA",
+      "tarefa": "",
+      "empresa": "",
       "data": "",
       "tempo": "",
       "saldo": "",
-      "situacao": "",
+      "situacao": "EM ATRASO",
       "equipe": "",
-      "descricao": "d",
+      "descricao": "SSSSSS",
       "id": 11
+    },
+    {
+      "listaId": 1,
+      "setor": "DESENVOLVIMENTO",
+      "codigo": "",
+      "tarefa": "",
+      "empresa": "",
+      "data": "2022-03-23",
+      "tempo": "",
+      "saldo": "",
+      "situacao": "EM ATRASO",
+      "equipe": "",
+      "descricao": "",
+      "id": 12
+    },
+    {
+      "listaId": 2,
+      "setor": "DESENVOLVIMENTO",
+      "codigo": "",
+      "tarefa": "",
+      "empresa": "",
+      "data": "",
+      "tempo": "",
+      "saldo": "",
+      "situacao": "ATENÇÃO",
+      "equipe": "",
+      "descricao": "",
+      "id": 13
     }
   ]
 }

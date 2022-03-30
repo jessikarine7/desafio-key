@@ -3,9 +3,10 @@
     <draggable
       class="container-corpo"
       :list="listas"
-      item-key="titulo">
+      item-key="titulo"
+    >
       <template #item="{ element }">
-        <div class="card-vertical">
+        <div class="card-vertical" :data-lista-id="element.id">
           <div class="etiqueta">
             <h1 class="titulo-etiqueta">{{element.titulo}}</h1>
             <div class="tempo-etiqueta">
@@ -21,11 +22,11 @@
             :list="element.cards"
             item-key="tarefa"
             class="drag-cards"
-            :class="element.cards.length ? '' : 'empty'"
             :group="{ name: 'cards' }"
+            @end="endEvent"
           >
             <template #item="{ element }">
-              <div class="card">
+              <div class="card" :data-id="element.id">
                 <div class="container-informacao">
                   <button class="setor">{{element.setor}}</button>
                   <div class="container-codigos">
@@ -107,7 +108,7 @@
 
 <script>
 import draggable from "vuedraggable";
-
+import axios from 'axios';
 
 export default {
   components: {
@@ -119,8 +120,19 @@ export default {
       drag: false,
     };
   },
+  methods: {
+    async endEvent(args) {
+      const to = args.to
+      const newListaId = to.parentElement.dataset['listaId'];
+      const cardId = args.item.dataset['id'];
+      const response = await axios.get(`${this.apiUrl}/cards/${cardId}`)
+      const card = response.data
+      card.listaId = parseInt(newListaId);
+      await axios.put(`${this.apiUrl}/cards/${cardId}`, card)
+    }
+  },
 
-  props:['listas'],
+  props:['listas']
 };
 </script>
 
@@ -147,7 +159,7 @@ export default {
   flex-grow: 1;
   flex-shrink: 0;
   overflow-y: auto;
-  width: clamp(300px, 27vw, 375px);
+  width: clamp(300px, 25vw, 310px);
   height: 85vh;
   background-color: #e8ebe8;
   border-top-left-radius: 10px;
@@ -223,6 +235,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items:flex-start;
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 15px;
@@ -332,11 +345,11 @@ export default {
   display: inline-block;
 }
 
-.drag-cards.empty {
+.drag-cards:empty {
   text-align: center;
 }
 
-.drag-cards.empty::after {
+.drag-cards:empty::after {
   font-family: Montserrat;
   content: "Arraste e solte cards aqui.";
   opacity: 0.5;
