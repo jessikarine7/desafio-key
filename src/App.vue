@@ -30,15 +30,15 @@
 
     </nav>
   </div>
-  <Menu_VE />
-  <Corpo_Cards />
+  <Menu_VE @criar-task="criarTaskHandler"/>
+  <Corpo_Cards :listas="listas" />
 </template>
 
 <script>
 
-import Menu_VE from './views/Menu_VE.vue'
-
-import Corpo_Cards from './views/Corpo_Cards.vue'
+import Menu_VE from './views/Menu_VE.vue';
+import Corpo_Cards from './views/Corpo_Cards.vue';
+import axios from 'axios';
 
 export default {
   components:{
@@ -47,12 +47,29 @@ export default {
   },
   data() {
     return {
-      mostrarBusca: false
+      mostrarBusca: false,
+      listas:[]
     }
   },
+  created(){
+    this.updateLista()
+  },
+
   methods: {
     ativarBusca() {
       this.mostrarBusca = true;
+    },
+
+    criarTaskHandler() {
+      this.updateLista()
+    },
+
+    updateLista(){
+      axios
+        .get('http://localhost:3000/listas?_embed=cards')
+        .then((response) => {
+          this.listas = response.data;
+        })
     }
   }
 }
@@ -61,6 +78,7 @@ export default {
 <style >
 
 /*---------------------- MENU HORIZAONTAL---------------------*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
@@ -94,7 +112,7 @@ body{
 
 .container-3{
   gap: 20px; 
-  margin-right: 4%;
+  margin-right: 40px;
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -156,7 +174,7 @@ body{
   right: 0;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 950px) {
   div.div-input {
     position: static;
     display: flex;
@@ -182,18 +200,17 @@ body{
 }
 
 #input{
-  border: none;
   font-family: Rubik;
   font-size: 17px;
   font-weight:600;
   color: #0000004D;
-  opacity: 1;
-  
+  border: 0;
+  outline: 0;
+  appearance: none;
 }
 
-.input::placeholder{
+#input::placeholder{
   color: #0000004D;
-  opacity: 1;
 }
 
 #lupa{

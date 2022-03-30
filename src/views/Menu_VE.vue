@@ -133,10 +133,11 @@ export default {
 
   methods:{
     createdPost() {
-      
       axios
         .post('http://localhost:3000/cards', this.FormData)
         .then((response) => {
+          this.$emit('criarTask')
+          this.showModal = false
           console.log(response.data)
         })
     },

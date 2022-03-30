@@ -10,10 +10,10 @@
             <h1 class="titulo-etiqueta">{{element.titulo}}</h1>
             <div class="tempo-etiqueta">
               <div class="horas-etiqueta">
-                <img src="@/img/time.svg" alt="">
+                <img src="@/img/relogioB.png" width="20" height="20" alt="">
                 <p class="horas-etiqueta">1h</p>
               </div>
-              <img src="@/img/numero-3.png" width="20px" height="20px" alt="">
+              <span class="numero-etiqueta">3</span>
             </div>
           </div>
 
@@ -45,7 +45,7 @@
                   <div class="container-previsao">
                     <span class="descrisao">Prevista:</span>
                     <div class="container-data">
-                      <img src="@/img/calendario.svg" width="20px" height="20px" alt="">
+                      <img src="@/img/calendario.svg" width="22" height="22" alt="">
                       <span class="data-previsao">{{element.data}}</span>
                     </div>
                   </div>
@@ -97,8 +97,6 @@
                 </div>
 
               </div>
-
-
             </template>
           </draggable>
         </div>
@@ -109,28 +107,20 @@
 
 <script>
 import draggable from "vuedraggable";
-import axios from 'axios';
+
 
 export default {
   components: {
     draggable,
-
   },
 
   data() {
     return {
-      listas: [],
       drag: false,
     };
   },
 
-  created() {
-    axios
-      .get('http://localhost:3000/listas?_embed=cards')
-      .then((response) => {
-        this.listas = response.data;
-      })
-  }
+  props:['listas'],
 };
 </script>
 
@@ -139,8 +129,8 @@ export default {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  margin-right: min(10vw, 124px);
-  margin-left: min(10vw, 124px);
+  margin-right: 124px;
+  margin-left: 124px;
   padding: 0 20px;
   overflow-x: scroll;
 }
@@ -157,7 +147,7 @@ export default {
   flex-grow: 1;
   flex-shrink: 0;
   overflow-y: auto;
-  width: min(375px, 27vw);
+  width: clamp(300px, 27vw, 375px);
   height: 85vh;
   background-color: #e8ebe8;
   border-top-left-radius: 10px;
@@ -189,16 +179,32 @@ export default {
 
 .horas-etiqueta {
   display: flex;
+  align-items: center;
   gap: 3px;
   font-family: Montserrat;
   font-weight: 500;
   color: #fff;
 }
 
+.numero-etiqueta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 28px;
+  background-color: #fff;
+  color: #8CC587;
+  font-family: Montserrat;
+  font-weight: 500;
+}
+
+
 .tempo-etiqueta {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   margin-right: 20px;
 }
