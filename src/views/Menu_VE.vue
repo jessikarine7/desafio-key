@@ -134,7 +134,7 @@ export default {
   methods:{
     createdPost() {
       axios
-        .post('http://localhost:3000/cards', this.FormData)
+        .post('https://my-json-server.typicode.com/jessikarine7/desafio-key/cards', this.FormData)
         .then((response) => {
           this.$emit('criarTask')
           this.showModal = false
