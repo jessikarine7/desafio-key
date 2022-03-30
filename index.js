@@ -13,7 +13,7 @@ const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
-server.use('api', router);
+server.use('/api', router);
 
 server.use(express.static('dist'));
 server.listen(PORT);
