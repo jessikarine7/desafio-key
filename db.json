@@ -23,144 +23,230 @@
   ],
   "cards": [
     {
-      "listaId": "2",
-      "setor": "asda",
-      "codigo": "asdasd",
-      "tarefa": "asdas",
-      "empresa": "",
-      "data": "sdad",
-      "tempo": "asda",
-      "saldo": "asdasd",
-      "situacao": "asda",
-      "equipe": "",
-      "descricao": "",
-      "id": 3
-    },
-    {
-      "listaId": 4,
-      "setor": "asda",
-      "codigo": "asdasd",
-      "tarefa": "asdas",
-      "empresa": "",
-      "data": "sdad",
-      "tempo": "asda",
-      "saldo": "asdasd",
-      "situacao": "asda",
-      "equipe": "",
-      "descricao": "",
-      "id": 4
-    },
-    {
-      "listaId": 3,
-      "setor": "set",
-      "codigo": "#23434",
-      "tarefa": "nova tarefa",
-      "empresa": "sda",
-      "data": "previsao",
+      "listaId": 1,
+      "setor": "DESENVOLVIMENTO",
+      "codigo": "#12345",
+      "tarefa": "CRIAR MIGRATION",
+      "empresa": "Company",
+      "data": "30/12/2021",
       "tempo": "00:30",
-      "saldo": "2132",
+      "saldo": "+00:10",
       "situacao": "EM DIA",
-      "equipe": "adsa",
-      "descricao": "asdsa",
-      "id": 5
-    },
-    {
-      "listaId": 5,
-      "setor": "ASDA",
-      "codigo": "ASDA",
-      "tarefa": "",
-      "empresa": "",
-      "data": "2022-03-23",
-      "tempo": "ASDAS",
-      "saldo": "",
-      "situacao": "ATENÇÃO",
-      "equipe": "",
-      "descricao": "asdsad",
-      "id": 6
-    },
-    {
-      "listaId": "1",
-      "setor": "ASDA",
-      "codigo": "ASDA",
-      "tarefa": "",
-      "empresa": "",
-      "data": "2022-03-23",
-      "tempo": "ASDAS",
-      "saldo": "",
-      "situacao": "EM ATRASO",
-      "equipe": "",
-      "descricao": "asdsad",
-      "id": 7
-    },
-    {
-      "listaId": 2,
-      "setor": "gggg",
-      "codigo": "gggggg",
-      "tarefa": "gg",
-      "empresa": "gggggg",
-      "data": "",
-      "tempo": "ggggg",
-      "saldo": "ggggg",
-      "situacao": "",
-      "equipe": "",
-      "descricao": "gggggg",
-      "id": 9
+      "equipe": [
+        "AS Amanda Santos",
+        "PH Poliana Holanda",
+        "WO Wellington Oliveira"
+      ],
+      "descricao": "Usar a branch master, fazer pull, após isso...",
+      "id": 1
     },
     {
       "listaId": 1,
-      "setor": "UX|UI",
-      "codigo": "#KKKKK",
-      "tarefa": "",
-      "empresa": "",
-      "data": "2022-03-15",
-      "tempo": "00:30",
-      "saldo": "111",
+      "setor": "UX | UI",
+      "codigo": "#12346",
+      "tarefa": "LISTAGEM CLIENTES",
+      "empresa": "Company",
+      "data": "01/01/2021",
+      "tempo": "02:30",
+      "saldo": "+00:10",
       "situacao": "ATENÇÃO",
-      "equipe": "",
-      "descricao": "",
-      "id": 10
+      "equipe": [
+        "PH Poliana Holanda"
+      ],
+      "descricao": "Colunas utilizadas: código, Nome, Descrição...",
+      "id": 2
+    },
+    {
+      "listaId": 1,
+      "setor": "FINANCEIRO",
+      "codigo": "#12345",
+      "tarefa": "LANÇAR NOTAS",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "05:45",
+      "saldo": "-00:30",
+      "situacao": "EM ATRASO",
+      "equipe": [
+        "TF Thiago Fernandes"
+      ],
+      "descricao": "Selecionar notas fiscais, lançar no ERP.",
+      "id": 3
+    },
+    {
+      "listaId": 2,
+      "setor": "DESENVOLVIMENTO",
+      "codigo": "#12345",
+      "tarefa": "CRIAR MIGRATION",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "00:30",
+      "saldo": "+00:10",
+      "situacao": "EM DIA",
+      "equipe": [
+        "AS Amanda Santos",
+        "PH Poliana Holanda",
+        "WO Wellington Oliveira"
+      ],
+      "descricao": "Usar a branch master, fazer pull, após isso...",
+      "id": 4
+    },
+    {
+      "listaId": 2,
+      "setor": "DESENVOLVIMENTO",
+      "codigo": "#12345",
+      "tarefa": "CRIAR MIGRATION",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "00:30",
+      "saldo": "+00:10",
+      "situacao": "EM DIA",
+      "equipe": [
+        "AS Amanda Santos",
+        "PH Poliana Holanda",
+        "WO Wellington Oliveira"
+      ],
+      "descricao": "Usar a branch master, fazer pull, após isso...",
+      "id": 5
+    },
+    {
+      "listaId": 2,
+      "setor": "FINANCEIRO",
+      "codigo": "#12345",
+      "tarefa": "LANÇAR NOTAS",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "05:45",
+      "saldo": "-00:30",
+      "situacao": "EM ATRASO",
+      "equipe":  [
+        "TF Thiago Fernandes"
+      ],
+      "descricao": "Selecionar notas fiscais, lançar no ERP.",
+      "id": 6
+    },
+    {
+      "listaId": 3,
+      "setor": "UX | UI",
+      "codigo": "#12346",
+      "tarefa": "LISTAGEM CLIENTES",
+      "empresa": "Company",
+      "data": "01/01/2021",
+      "tempo": "02:30",
+      "saldo": "+00:10",
+      "situacao": "ATENÇÃO",
+      "equipe": [
+        "PH Poliana Holanda"
+      ],
+      "descricao": "Colunas utilizadas: código, Nome, Descrição...",
+      "id": 7
+    },
+    {
+      "listaId": 3,
+      "setor": "FINANCEIRO",
+      "codigo": "#12345",
+      "tarefa": "LANÇAR NOTAS",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "05:45",
+      "saldo": "-00:30",
+      "situacao": "EM ATRASO",
+      "equipe": [
+        "TF Thiago Fernandes"
+      ],
+      "descricao": "Selecionar notas fiscais, lançar no ERP.",
+      "id": 7
     },
     {
       "listaId": 4,
       "setor": "UX | UI",
-      "codigo": "ESSAA",
-      "tarefa": "",
-      "empresa": "",
-      "data": "",
-      "tempo": "",
-      "saldo": "",
-      "situacao": "EM ATRASO",
-      "equipe": "",
-      "descricao": "SSSSSS",
-      "id": 11
-    },
-    {
-      "listaId": 1,
-      "setor": "DESENVOLVIMENTO",
-      "codigo": "",
-      "tarefa": "",
-      "empresa": "",
-      "data": "2022-03-23",
-      "tempo": "",
-      "saldo": "",
-      "situacao": "EM ATRASO",
-      "equipe": "",
-      "descricao": "",
-      "id": 12
-    },
-    {
-      "listaId": 2,
-      "setor": "DESENVOLVIMENTO",
-      "codigo": "",
-      "tarefa": "",
-      "empresa": "",
-      "data": "",
-      "tempo": "",
-      "saldo": "",
+      "codigo": "#12346",
+      "tarefa": "LISTAGEM CLIENTES",
+      "empresa": "Company",
+      "data": "01/01/2021",
+      "tempo": "02:30",
+      "saldo": "+00:10",
       "situacao": "ATENÇÃO",
-      "equipe": "",
-      "descricao": "",
-      "id": 13
+      "equipe": [
+        "PH Poliana Holanda"
+      ],
+      "descricao": "Colunas utilizadas: código, Nome, Descrição...",
+      "id": 8
+    },
+    {
+      "listaId": 4,
+      "setor": "FINANCEIRO",
+      "codigo": "#12345",
+      "tarefa": "LANÇAR NOTAS",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "05:45",
+      "saldo": "-00:30",
+      "situacao": "EM ATRASO",
+      "equipe": [
+        "TF Thiago Fernandes"
+      ],
+      "descricao": "Selecionar notas fiscais, lançar no ERP.",
+      "id": 9
+    },
+    {
+      "listaId": 5,
+      "setor": "DESENVOLVIMENTO",
+      "codigo": "#12345",
+      "tarefa": "CRIAR MIGRATION",
+      "empresa": "Company",
+      "data": "30/12/2021",
+      "tempo": "00:30",
+      "saldo": "+00:10",
+      "situacao": "EM DIA",
+      "equipe": [
+        "AS Amanda Santos",
+        "PH Poliana Holanda",
+        "WO Wellington Oliveira"
+      ],
+      "descricao": "Usar a branch master, fazer pull, após isso...",
+      "id": 10
+    },
+    {
+      "listaId": 5,
+      "setor": "UX | UI",
+      "codigo": "#12346",
+      "tarefa": "LISTAGEM CLIENTES",
+      "empresa": "Company",
+      "data": "01/01/2021",
+      "tempo": "02:30",
+      "saldo": "+00:10",
+      "situacao": "ATENÇÃO",
+      "equipe":[
+        "PH Poliana Holanda"
+      ],
+      "descricao": "Colunas utilizadas: código, Nome, Descrição...",
+      "id": 11
+    }
+  ],
+  "equipe": [
+    {
+      "setor": "DESENVOLVIMENTO",
+      "nome": "Amanda Santos",
+      "abreviacao": "AS",
+      "id": 1
+    },
+    {
+      "setor": "UX | UI",
+      "nome": "Poliana Holanda",
+      "abreviacao": "PH",
+      "id": 2
+    },
+    {
+      "setor": "DESENVOLVIMENTO",
+      "nome": "Wellington Oliveira",
+      "abreviacao": "WO",
+      "id": 3
+    },
+    {
+      "setor": "FINANCEIRO",
+      "nome": "Thiago Fernandes",
+      "abreviacao": "TF",
+      "id": 4
     }
   ]
 }

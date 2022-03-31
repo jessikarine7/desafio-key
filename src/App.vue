@@ -43,7 +43,7 @@ import axios from 'axios';
 export default {
   components:{
     Menu_VE,
-    Corpo_Cards
+    Corpo_Cards,
   },
   data() {
     return {
@@ -73,8 +73,8 @@ export default {
         .then((response) => {
           this.listas = response.data;
         })
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -95,7 +95,7 @@ body{
   margin-right: 124px;
   margin-left: 124px;
   border: 2px solid #8cc587;
-  border-left: 34px solid #8cc587;
+  border-left: 20px solid #8cc587;
   border-right: 4px solid #8cc587;
 }
 

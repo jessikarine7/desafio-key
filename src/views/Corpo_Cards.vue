@@ -11,7 +11,7 @@
             <h1 class="titulo-etiqueta">{{element.titulo}}</h1>
             <div class="tempo-etiqueta">
               <div class="horas-etiqueta">
-                <img src="@/img/relogioB.png" width="20" height="20" alt="">
+                <img src="@/img/relogioB.png" width="16" height="16" alt="">
                 <p class="horas-etiqueta">1h</p>
               </div>
               <span class="numero-etiqueta">3</span>
@@ -64,7 +64,7 @@
                     <div class="hora-prevista">
                       <span class="descrisao titulo-hora">Previsto</span> 
                       <div class="icone-hora">
-                        <img src="@/img/relogio.png" width="20" height="20" alt="">
+                        <img src="@/img/relogio.png" width="16" height="16" alt="">
                         <span class="hora">{{element.tempo}}</span>
                       </div>
                     </div>
@@ -78,8 +78,10 @@
                     <div class="saldo-horas">
                       <span class="descrisao titulo-saldo">Saldo</span>
                       <div class="icone-saldo">
-                        <img src="@/img/relogio.png" width="20" height="20" alt="">
-                        <span class="saldo">{{element.saldo}}</span>
+                        <img src="@/img/relogio.png" width="16" height="16" alt="">
+                        <span class="saldo green" v-if="element.situacao === 'EM DIA'">{{element.saldo}}</span>
+                        <span class="saldo yellow" v-if="element.situacao === 'ATENÇÃO'">{{element.saldo}}</span>
+                        <span class="saldo red" v-if="element.situacao === 'EM ATRASO'">{{element.saldo}}</span>
                       </div>
 
                     </div>
@@ -87,9 +89,7 @@
                     <div class="container-equipe">
                       <span class="descrisao titulo-equipe">Equipe</span>
                       <div class="equipe-responsavel">
-                        <span class="equipe">{{element.equipe}}</span>
-                        <span class="equipe">PH</span>
-                        <span class="equipe">WO</span>
+                        <span class="equipe" v-for="pessoa of element.equipe" :key="pessoa">{{pessoa.slice(0,2)}}</span>
                       </div>
                     </div>
 
@@ -129,7 +129,7 @@ export default {
       const card = response.data
       card.listaId = parseInt(newListaId);
       await axios.put(`${this.apiUrl}/cards/${cardId}`, card)
-    }
+    },
   },
 
   props:['listas']
@@ -141,8 +141,8 @@ export default {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  margin-right: 124px;
-  margin-left: 124px;
+  margin-right: 120px;
+  margin-left: 120px;
   padding: 0 20px;
   overflow-x: scroll;
 }
@@ -152,17 +152,19 @@ export default {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  margin-left: 1.5%;
-  margin-top: 2%;
+  margin-left: 1%;
+  margin-top: 3%;
   gap: 18px;
   padding: 0 10px;
   flex-grow: 1;
   flex-shrink: 0;
   overflow-y: auto;
-  width: clamp(300px, 25vw, 310px);
-  height: 85vh;
+  width: clamp(300px, 25vw, 333px);
+  height: 80vh;
   background-color: #e8ebe8;
-  border-top-left-radius: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .card-vertical:first-child {
@@ -175,10 +177,10 @@ export default {
   justify-content: space-between;
   width: calc(100% + 20px);
   margin: 0 -10px;
-  height: 7vh;
+  height: 5vh;
   background-color: #8cc587;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .titulo-etiqueta {
@@ -195,6 +197,7 @@ export default {
   gap: 3px;
   font-family: Montserrat;
   font-weight: 500;
+  font-size: 14px;
   color: #fff;
 }
 
@@ -202,13 +205,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 28px;
   background-color: #fff;
   color: #8CC587;
   font-family: Montserrat;
   font-weight: 500;
+  font-size: 13px;
 }
 
 
@@ -225,7 +229,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  width: 100%;
+  width: 101%;
   box-shadow: 0px 1px 5px 0px #0000003d;
   border-radius: 5px;
   background-color: #fff;
@@ -243,12 +247,12 @@ export default {
 
 .setor {
   font-family: Montserrat;
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: bold;
+  font-size: 11px;
   color: #00000080;
   background: #fff;
-  border: 2px solid #00000080;
-  border-radius: 5px;
+  border: 1px solid #00000080;
+  border-radius: 3px;
 }
 
 .container-codigos {
@@ -258,35 +262,33 @@ export default {
 
 .descrisao {
   font-family: Montserrat;
-  font-weight: 500;
-  font-size: 11px;
+  font-weight: normal;
+  font-size: 10px;
   color: #00000080;
 }
 
 .descrisao-p {
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 13px;
-  color: #000000b3;
-  opacity: 1;
+  font-size: 12px;
+  color: #000000B3;
   margin-bottom: 20px;
 }
 
 .codigo-numero {
   font-family: Montserrat;
-  font-weight: 500;
-  font-size: 15px;
-  color: #000000e6;
+  font-weight: normal;
+  font-size: 12px;
+  color: #000000E6;
 }
 
 .tarefa {
   font-family: Montserrat;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   margin-left: 15px;
   margin-right: 15px;
-  color: #000000e6;
-  opacity: 1;
+  color: #000000E6;
 }
 
 .container-projetos {
@@ -306,8 +308,7 @@ export default {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 600;
-  color: #000000e6;
-  opacity: 1;
+  color: #000000E6;
 }
 
 .container-previsao {
@@ -326,8 +327,7 @@ export default {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 500;
-  color: #000000e5;
-  opacity: 1;
+  color: #000000E5;
 }
 
 .container-descrisao {
@@ -365,12 +365,12 @@ export default {
 .limite{
   position: absolute;
   z-index: 0;
-  top: -10px;
+  top: -8px;
   background-color: #fff;
   margin-left: 15px;
   font-family: Montserrat;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 10px;
   color: #0000004D;
   padding-left: 3px;
   padding-right: 3px;
@@ -385,7 +385,6 @@ export default {
   margin-left: 15px;
   margin-right: 15px;
   /* margin-bottom: 4px; */
-
 }
 
 .icone-hora{
@@ -417,12 +416,17 @@ export default {
 }
 
 .situacao{
-  padding: 5px 20px 5px 20px;
+  /* padding: 5px 15px 5px 15px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 24px;
   border-radius: 3px;
   color: #fff;
   font-family: Montserrat;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 11px;
   box-shadow: 0px 3px 6px #00000029;
 }
 
@@ -437,14 +441,33 @@ export default {
   background-color: #A31E20;
 }
 
-.saldo{
-  border: 1px solid #107154;
+.saldo {
   border-radius: 3px;
-  padding: 3px;
+  /* padding: 3px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 19px;
   font-family: Montserrat;
   font-weight: bold;
+  font-size: 11px;
+
+}
+
+.saldo.green{
+  border: 1px solid #107154;
   color: #107154;
-  font-size: 10px;
+}
+
+.saldo.yellow{
+  background-color: #F7E702 ;
+  color: #000000;
+}
+
+.saldo.red{
+  border: 1px solid #A31E20;
+  color: #A31E20;
 }
 
 .hora-prevista{
@@ -467,8 +490,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   background-color: #00000080;
   color: #FFFFFF;
   font-family: Montserrat;

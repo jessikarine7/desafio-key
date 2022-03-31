@@ -54,7 +54,15 @@
                 <option>EM ATRASO</option>
               </select>
               <label for="equipe" class="descricao-modal">Equipe:</label>
-              <input type="text" id="equipe" class="input-modal" v-model="FormData.equipe">
+
+              <VueMultiselect 
+                :options="equipe"
+                id="equipe" 
+                :multiple="true"
+                v-model="FormData.equipe"
+               >
+              </VueMultiselect>
+
             </div>
           </div>
 
@@ -106,8 +114,9 @@
 
 <script>
 
-import axios from "axios"
+import axios from "axios";
 import {  VueFinalModal } from 'vue-final-modal';
+import VueMultiselect from 'vue-multiselect';
 
 export default {
   inheritAttrs: false,
@@ -129,12 +138,15 @@ export default {
         equipe:'',
         descricao:''
       },
-      listas: []
+      listas: [],
+      equipe: []
+      
     }
   },
 
   components:{
     VueFinalModal,
+    VueMultiselect
   },
 
   methods:{
@@ -147,6 +159,7 @@ export default {
           console.log(response.data)
         })
     },
+
   },
   created() {
     axios
@@ -154,9 +167,19 @@ export default {
       .then((response) => {
         this.listas = response.data;
       })
+    axios
+      .get(`${this.apiUrl}/equipe`)
+      .then((response) => {
+        this.equipe = response.data.map((equipe1) => {
+          return equipe1.nome
+        })
+      })
   }
 }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
+
 
 <style>
 .menu-container-1{
@@ -286,8 +309,10 @@ export default {
 .modal-content {
   position: relative;
   display: flex;
+
   flex-direction: column;
-  max-height: 90%;
+  width: 70%;
+  max-width: 700px;
   margin: 0 1rem;
   padding: 1rem;
   border: 1px solid #e2e8f0;
@@ -313,7 +338,7 @@ export default {
 .modal__content {
   display: flex;
   flex-grow: 1;
-  overflow-y: auto;
+  overflow: hidden;
   gap: 20px;
 }
 
@@ -321,6 +346,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex: 1;
 }
 
 .descricao-modal{
@@ -362,6 +388,7 @@ export default {
   background-color: #0000001A;
   border-radius: 5px;
   padding: 8px;
+  
 }
 
 .textarea{
@@ -372,4 +399,25 @@ export default {
   width: 100%;
 }
 
+</style>
+
+
+<style>
+.multiselect__tags {
+  min-height: 40px;
+  display: block;
+  padding: 8px 40px 0 8px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  background:#0000001A ;
+  font-size: 14px;
+}
+
+.multiselect__input{
+  background-color: #0000001A;
+}
+
+.multiselect__input::placeholder {
+  color: #0000001A;
+}
 </style>
