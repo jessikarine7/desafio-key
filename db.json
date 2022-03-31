@@ -226,26 +226,22 @@
   "equipe": [
     {
       "setor": "DESENVOLVIMENTO",
-      "nome": "Amanda Santos",
-      "abreviacao": "AS",
+      "nome": "AS Amanda Santos",
       "id": 1
     },
     {
       "setor": "UX | UI",
-      "nome": "Poliana Holanda",
-      "abreviacao": "PH",
+      "nome": "PH Poliana Holanda",
       "id": 2
     },
     {
       "setor": "DESENVOLVIMENTO",
-      "nome": "Wellington Oliveira",
-      "abreviacao": "WO",
+      "nome": "WO Wellington Oliveira",
       "id": 3
     },
     {
       "setor": "FINANCEIRO",
-      "nome": "Thiago Fernandes",
-      "abreviacao": "TF",
+      "nome": "TF Thiago Fernandes",
       "id": 4
     }
   ]
